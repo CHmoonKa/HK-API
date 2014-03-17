@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hk.api.dao.db2.AuthorDao" >
+
+    <select
+        id="getAuthor"
+        parameterType="int"
+        resultType="com.hk.api.vo.AuthorVo" >
+        SELECT
+            id,
+            name
+        FROM author
+        WHERE id = #{no}    </select>
+</mapper>

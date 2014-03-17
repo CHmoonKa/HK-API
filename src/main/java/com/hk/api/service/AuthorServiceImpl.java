@@ -6,11 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Service;
 
-import com.hk.api.dao.db1.AppDao;
-import com.hk.api.vo.AppVo;
+import com.hk.api.dao.db2.AuthorDao;
+import com.hk.api.vo.AuthorVo;
 
 @Service
-public class AppServiceImpl implements AppService {
+public class AuthorServiceImpl implements AuthorService {
 
     private static final Logger logger = LoggerFactory.getLogger("com.hk.api.service");
 
@@ -18,11 +18,12 @@ public class AppServiceImpl implements AppService {
     private MessageSource messageSource;
 
     @Autowired
-    private AppDao appDao;
+    private AuthorDao authorDao;
 
-    @Override
-    public AppVo getApp(int id) {
-    	logger.debug("user get the app version with id: " + id);
-        return appDao.getAppVersion(id);
-    }
+
+	@Override
+	public AuthorVo getAuthor(int id) {
+		logger.debug("user get the author with id: " + id);
+		return authorDao.getAuthor(id);
+	}
 }

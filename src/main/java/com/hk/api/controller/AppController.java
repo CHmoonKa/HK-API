@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.hk.api.service.AppService;
+import com.hk.api.service.AuthorService;
 import com.hk.api.vo.AppVo;
+import com.hk.api.vo.AuthorVo;
 
 @Controller
 @SuppressWarnings("unchecked")
@@ -20,6 +22,9 @@ public class AppController {
 
     @Autowired
     private AppService appService;
+    
+    @Autowired
+    private AuthorService authorService;
 
     
 	@RequestMapping(value = "/hello/version.hk", method = RequestMethod.GET)
@@ -37,6 +42,9 @@ public class AppController {
     	AppVo av = appService.getApp(id);
     	obj.put("version", av.getVersion());
     	obj.put("update", av.getUpdated());
+    	
+    	AuthorVo authorVo = authorService.getAuthor(id);
+    	obj.put("author", authorVo.getName());
     	
         HttpHeaders responseHeaders = new HttpHeaders();
         responseHeaders.add("Content-Type", "text/html; charset=UTF-8");

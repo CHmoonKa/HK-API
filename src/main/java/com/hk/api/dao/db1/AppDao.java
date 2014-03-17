@@ -1,4 +1,4 @@
-package com.hk.api.dao;
+package com.hk.api.dao.db1;
 
 import com.hk.api.vo.AppVo;
 
